@@ -8,6 +8,7 @@ import ImageGallery from './ImageGallery/ImageGallery';
 import Button from './Button/Button';
 import Modal from './Modal/Modal';
 import s from './App.module.css';
+
 export default class App extends Component {
   state = {
     imageName: '',
@@ -101,14 +102,16 @@ export default class App extends Component {
     if (status === 'resolved') {
       return (
         <div className={s.App}>
-          <SearchBar onSubmit={this.handleFormSubmit} />
+          <SearchBar onSubmit={this.handleFormSubmit}/>
+        
           <ImageGallery openModal={this.openModal} images={images} />
           {images.length > 0 && <Button onClick={this.onLoadMore} />}
           {modalIsOpen && (
             <Modal image={selectedImage} onClose={this.closeModal} />
           )}
           <ToastContainer />
-        </div>
+          </div>
+          
       );
     }
   }
